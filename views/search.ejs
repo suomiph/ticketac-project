@@ -24,22 +24,9 @@
             <ul class="list-group">
 
               <% for (var i =0; i< result.length; i++ ) { %> 
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="bold">Paris / Lille</span>
-                  <div>
-                    <span class="">train departure at: </span>
-                    <span>15:00 pm</span>
-                  </div>
-                  <div >
-                    <span class="bold">93€&nbsp;</span>
-                    <a href="/reserve?id=" class="btn btn-danger" >OK</a>
-                  </div>
-                </li>
-                
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="bold"><%= result[i].fromcity %> / <% result[i].tocity %> </span>
+                  <span class="bold"><%= result[i].fromcity %> / <%= result[i].tocity %> </span>
                   <div>
                     <span class="">train departure at: <%=result[i].hour %> </span>
                   </div>

@@ -61,17 +61,7 @@ router.get('/mytrips', function(req, res, next) {
   res.render('mytrips');
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f28780dbf7c6c5edad671d3b5559c23a1b61a99f
 module.exports = router;
-
-
-
-
-
 
 //// Remplissage de la base de donnée, une fois suffit
 //router.get('/save', async function(req, res, next) {
