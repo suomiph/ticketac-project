@@ -3,6 +3,26 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+  font-size: 18px !important;
+}
+
 a {
-  color: #00B7FF;
+  color: black !important;
+}
+
+a:hover {
+  color: red !important;
+  font-weight: bold;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+.train {
+  margin-right: 15px;
+}
+.connection {
+  margin-right: 15px;
 }
