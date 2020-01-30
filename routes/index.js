@@ -12,6 +12,16 @@ var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lil
 var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
 
 
+// functions
+function verifyConnect (response, reqSession) {
+	if ( typeof(reqSession.userid) == "undefined" ) {
+		response.redirect('/');
+		return 0;
+	}	
+}
+
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('home');
@@ -21,15 +31,17 @@ router.get('/', function(req, res, next) {
 
 /* GET search page. */
 router.get('/index', function(req, res, next) {
-  res.render('index');
+	verifyConnect(res,req.session);
+   res.render('index');
 });
 
 
 
 /* GET search result page. */
 router.post('/search', async function(req, res, next) {
+	verifyConnect(res,req.session);
 	
-	console.log(req.body) // fromcity, tocity, date
+	//console.log(req.body) // fromcity, tocity, date
 	
 	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
 	
@@ -45,20 +57,19 @@ router.post('/search', async function(req, res, next) {
 		});
 	}
 
-	console.log(result, date)
 	res.render('search', { result, date });
 });
 
 /* GET booking page. */
 router.get('/booking', function(req, res, next) {
-	
-  res.render('booking');
+	verifyConnect(res,req.session);
+	res.render('booking');
 });
 
 /* GET last trips page. */
 router.get('/mytrips', function(req, res, next) {
-	
-  res.render('mytrips');
+	verifyConnect(res,req.session);
+	res.render('mytrips');
 });
 
 module.exports = router;
