@@ -5,9 +5,9 @@ var request = require('sync-request');
 var mongoose = require('mongoose');
 var session = require('express-session');
 
-
-
 var userModel = require('../models/users');
+
+
 
 /* Routes user's homepage */
 

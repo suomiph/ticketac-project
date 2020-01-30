@@ -8,64 +8,68 @@
     <%- include('header'); %>
     
     
-    <div class="row">
+    <div class="container-fluid">
+    	
     
 		 <div class="col-12 text-center get_started">
-		   <% if ( typeof(error) != "undefined" ) { %>
-				<p class="empty"><%=error%></p>
-		 	<%	} %>
+				<% if ( typeof(error) != "undefined" ) { %>
+					<p class="empty"><%=error%></p>
+			 	<%	} %>
 		 </div>
-    
-		 <!-- SIGN IN AREA -->
-		 <div class="col-12 col-sm-6 text-center">
+			 
+		 <div class="row d-flex justify-content-center">
+		 
+				  
+			 <!-- SIGN IN AREA -->
+			 <div class="col-12 col-sm-6 col-md-3 text-center">
 
-		   <div class="formArea">
+				<div class="formArea">
 
-		     <h4 class="titleForm">Sign-in</h4>
+				  <h1 class="titleForm">Sign-in:</h1>
 
-		     <form action="/sign-in" method="POST">
-		       <div class="form-group">
-		         <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-		       </div>
-		       <div class="form-group">
-		         <input name="password" type="password" class="form-control" placeholder="Enter password">
-		       </div>
+				  <form action="/sign-in" method="POST">
+				    <div class="form-group">
+				      <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+				    </div>
+				    <div class="form-group">
+				      <input name="password" type="password" class="form-control" placeholder="Enter password">
+				    </div>
 
-		       <button type="submit" class="btn btn-info">Submit</button>
-		     </form>
+				    <button type="submit" class="btn btn-danger">Submit</button>
+				  </form>
 
-		   </div>
+				</div>
 
+			 </div>
+			
+			
+			 <!-- SIGN UP AREA -->
+			 <div class="col-12 col-sm-6 col-md-3 text-center">
+
+				<div class="formArea">
+				  <h1 class="titleForm">Sign-up:</h1>
+
+				  <form action="/sign-up" method="POST">
+				    <div class="form-group">
+				      <input name="firstname" type="text" class="form-control" placeholder="Enter first name">
+				    </div>
+				    <div class="form-group">
+				      <input name="lastname" type="text" class="form-control" placeholder="Enter last name">
+				    </div>
+				    <div class="form-group">
+				      <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+				    </div>
+				    <div class="form-group">
+				      <input name="password" type="password" class="form-control"  placeholder="Enter password">
+				    </div>
+
+				    <button type="submit" class="btn btn-danger">Submit</button>
+				  </form>
+				</div>
+
+			 </div>
 		 </div>
-		
-		
-		 <!-- SIGN UP AREA -->
-		 <div class="col-12 col-sm-6 text-center">
-
-		   <div class="formArea">
-		     <h4 class="titleForm">Sign-up</h4>
-
-		     <form action="/sign-up" method="POST">
-		       <div class="form-group">
-		         <input name="firstname" type="text" class="form-control" placeholder="Enter first name">
-		       </div>
-		       <div class="form-group">
-		         <input name="lastname" type="text" class="form-control" placeholder="Enter last name">
-		       </div>
-		       <div class="form-group">
-		         <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-		       </div>
-		       <div class="form-group">
-		         <input name="password" type="password" class="form-control"  placeholder="Enter password">
-		       </div>
-
-		       <button type="submit" class="btn btn-info">Submit</button>
-		     </form>
-		   </div>
-
-		 </div>
-	 </div>
-         
+    </div>     
   </body>
 </html>
 

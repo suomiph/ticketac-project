@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+  <%- include('head'); %>
+
+  <body>
+    
+    <%- include('header'); %>
+    
+    <div class="container-fluid">
+    
+		 
+		 <div class="d-flex flex-column align-items-center">
+		 
+			<div class="col-12 text-center get_started">
+				<% if ( typeof(error) != "undefined" ) { %>
+					<p class="empty"><%=error%></p>
+			 	<%	} %>
+		 	</div>	  
+			 
+			 
+			 
+			 
+			<div class="col-12 col-sm-6">
+
+			  <h1 class="titleForm">Tickets available on DATE</h1>
+			  
+			  <ul class="list-group">
+			  
+			  
+           	 <li class="list-group-item d-flex justify-content-between align-items-center"
+             >
+             	<span class="bold">Paris / Lille</span>
+               <div>
+                 <span class="">train departure at: </span>
+                 <span>15:00 pm</span>
+               </div>
+               <div >
+               	<span class="bold">93€&nbsp;</span>
+               	<a href="/reserve?id=" class="btn btn-danger" >OK</a>
+               </div>
+               
+             </li>
+             
+             
+             <li class="list-group-item d-flex justify-content-between align-items-center"
+             >
+             	<span class="bold">Paris / Lille</span>
+               <div>
+                 <span class="">train departure at: </span>
+                 <span>15:00 pm</span>
+               </div>
+               <div >
+               	<span class="bold">93€&nbsp;</span>
+               	<a href="/reserve?id=" class="btn btn-danger" >OK</a>
+               </div>
+               
+             </li>
+             
+             
+             <li class="list-group-item d-flex justify-content-between align-items-center"
+             >
+             	<span class="bold">Paris / Lille</span>
+               <div>
+                 <span class="">train departure at: </span>
+                 <span>15:00 pm</span>
+               </div>
+               <div >
+               	<span class="bold">93€&nbsp;</span>
+               	<a href="/reserve?id=" class="btn btn-danger" >OK</a>
+               </div>
+               
+             </li>
+
+          
+
+           </ul>
+				
+				
+
+			 </div>
+			 
+		  </div>
+		  
+    </div> <!-- close container -->
+     
+  </body>
+</html>
+

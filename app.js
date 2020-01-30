@@ -52,5 +52,27 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// app.locals functions
+
+app.locals.stringDate = function (date, longDay = 2, indYear = 0) {
+
+	if (longDay==2){ 
+		var day = String( date.getDate() ).padStart(longDay,'0'); 
+	} else { 
+		var day = String( date.getDate() ); 
+	}
+	
+	var month = String( date.getMonth()+1 ).padStart(2,'0');
+ 	var year = String( date.getFullYear() ).slice(indYear);
+ 	
+ 	return `${day}/${month}/${year}`;
+}
+
+
+
+
+
+
 module.exports = app;
 
