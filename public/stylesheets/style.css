@@ -6,15 +6,23 @@ body {
 	background: -moz-linear-gradient(top,  #7db9e8 29%, #2989d8 78%, #207cca 97%, #207cca 98%, #207cca 99%, #207cca 99%, #207cca 99%, #207cca 100%, #207cca 100%, #207cca 100%, #207cca 100%, #207cca 100%, #1e5799 100%) fixed; /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  #7db9e8 29%,#2989d8 78%,#207cca 97%,#207cca 98%,#207cca 99%,#207cca 99%,#207cca 99%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#1e5799 100%) fixed; /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #7db9e8 29%,#2989d8 78%,#207cca 97%,#207cca 98%,#207cca 99%,#207cca 99%,#207cca 99%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#1e5799 100%) fixed; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+  overflow: hidden;
 }
 
 h1 {
   font-size: 18px !important;
 }
 
+#title {
+  margin-top: 100px;
+  margin-left: 200px;
+  color: white;
+  opacity: 0.7;
+}
+
 a {
-  color: black !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 a:hover {
@@ -29,6 +37,41 @@ a:link {
 .train {
   margin-right: 15px;
 }
+
 .connection {
   margin-right: 15px;
+}
+
+.formulaire-ville {
+ margin-top: 20px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.ville {
+  margin-top: 60px;
+}
+
+footer {
+  margin-top: 45px;
+  color: white;
+  opacity: 0.7;
+}
+
+.accueil {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.accueil-sous-titre {
+  margin: 30px;
+}
+
+.accueil-titre {
+  font-size: 3em;
+}
+
+.accueil-image {
+  margin-top: 90px;
 }

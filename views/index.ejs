@@ -5,7 +5,44 @@
 
   <body>
     
+    <!-- Header et navigation -->
     <%- include('header'); %>
 
+    
+    <!-- RECHERCHER DES TRAINS -->
+
+    <h2 id="title">One-way ticket</h2>   
+
+      <div class="container">
+
+        <div class="row col-auto">
+        
+          <form class="formulaire-ville form-inline" action="/" method="POST">
+            <div class="input-group mb-3">
+              <div class="col">
+                <input name="fromcity" type="text" class="form-control" placeholder="From: Paris, Marseille..." aria-label="from city name">
+              </div> 
+              <div class="col">
+                <input name="tocity" type="text" class="form-control" placeholder="To: Lille, Nantes..." aria-label="to city name">
+              </div>
+              <div class="col" >
+                <input name="date" type="date" class="form-control" aria-label="choose date calendar">
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-danger" type="submit" id="button-addon2">Go !</button>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+
+      <!-- Illustration ville -->
+      <img src="/images/landmark.png" width="220px" class="rounded mx-auto d-block ville">
+
+    </div>    
+
   </body>
+  <footer>
+    <p class="text-center font-italic">© 2019 La Capsule</p>
+  </footer>
 </html>
