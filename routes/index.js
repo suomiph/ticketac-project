@@ -31,6 +31,18 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'Express' });
 });
 
+/* GET booking page. */
+router.get('/booking', function(req, res, next) {
+	
+  res.render('booking');
+});
+
+/* GET last trips page. */
+router.get('/mytrips', function(req, res, next) {
+	
+  res.render('mytrips');
+});
+
 
 module.exports = router;
 

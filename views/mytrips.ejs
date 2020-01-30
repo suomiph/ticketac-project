@@ -7,7 +7,7 @@
     
     <%- include('header'); %>
 
-    <h2 id="mytickets">My tickets:</h2>   
+    <h2 id="mytickets">My last trips:</h2>   
     
     <div class="container-fluid ">
 
@@ -16,34 +16,24 @@
             <table class="table bg-white ">
                 <thead>
                 <tr>
-                    <th scope="col">N°</th>
-                    <th scope="col">Journey</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Journey</th>
                     <th scope="col">Departure time</th>
                     <th scope="col">Price</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">1</th>
                     <td></td>
-                    <td></td>
+                    <td>Paris</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
+                    <td></td>
+                    <td>La Bretagne</td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="table-danger">
-                    <th scope="row" >Total</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td> PRIX €</td>
                 </tr>
                 </tbody>
                 
@@ -52,7 +42,7 @@
 
             <div class="row">
                 <div class="col-12 text-right" >
-                    <button class="btn btn-danger btn-confirm" id='confirm'>Confirm</button>
+                    <a href="/home"><button class="btn btn-danger btn-paiement" id='backhome'>Home</button></a>
                 </div>
             </div>
 
