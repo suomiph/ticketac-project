@@ -9,81 +9,57 @@
     
     <div class="container-fluid">
     
-		 
 		 <div class="d-flex flex-column align-items-center">
 		 
 			<div class="col-12 text-center get_started">
-				<% if ( typeof(error) != "undefined" ) { %>
+				<% if (typeof(error) != "undefined" ) { %>
 					<p class="empty"><%=error%></p>
 			 	<%	} %>
 		 	</div>	  
 			 
-			 
-			 
-			 
 			<div class="col-12 col-sm-6">
 
-			  <h1 class="titleForm">Tickets available on DATE</h1>
-			  
-			  <ul class="list-group">
-			  
-			  
-           	 <li class="list-group-item d-flex justify-content-between align-items-center"
-             >
-             	<span class="bold">Paris / Lille</span>
-               <div>
-                 <span class="">train departure at: </span>
-                 <span>15:00 pm</span>
-               </div>
-               <div >
-               	<span class="bold">93€&nbsp;</span>
-               	<a href="/reserve?id=" class="btn btn-danger" >OK</a>
-               </div>
-               
-             </li>
-             
-             
-             <li class="list-group-item d-flex justify-content-between align-items-center"
-             >
-             	<span class="bold">Paris / Lille</span>
-               <div>
-                 <span class="">train departure at: </span>
-                 <span>15:00 pm</span>
-               </div>
-               <div >
-               	<span class="bold">93€&nbsp;</span>
-               	<a href="/reserve?id=" class="btn btn-danger" >OK</a>
-               </div>
-               
-             </li>
-             
-             
-             <li class="list-group-item d-flex justify-content-between align-items-center"
-             >
-             	<span class="bold">Paris / Lille</span>
-               <div>
-                 <span class="">train departure at: </span>
-                 <span>15:00 pm</span>
-               </div>
-               <div >
-               	<span class="bold">93€&nbsp;</span>
-               	<a href="/reserve?id=" class="btn btn-danger" >OK</a>
-               </div>
-               
-             </li>
+          <h1 class="titleForm">Tickets available on <%= date%></h1>
+    
+            <ul class="list-group">
 
+              <% for (var i =0; i< result.length; i++ ) { %> 
+
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="bold">Paris / Lille</span>
+                  <div>
+                    <span class="">train departure at: </span>
+                    <span>15:00 pm</span>
+                  </div>
+                  <div >
+                    <span class="bold">93€&nbsp;</span>
+                    <a href="/reserve?id=" class="btn btn-danger" >OK</a>
+                  </div>
+                </li>
+                
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="bold"><%= result[i].fromcity %> / <% result[i].tocity %> </span>
+                  <div>
+                    <span class="">train departure at: <%=result[i].hour %> </span>
+                  </div>
+                  <div >
+                    <span class="bold"><%= result[i].price %>€&nbsp;</span>
+                    <a href="/reserve?id=" class="btn btn-danger" >OK</a>
+                  </div>
+                </li>
+               <% } %>   
+
+            </ul>
           
-
-           </ul>
-				
-				
-
 			 </div>
 			 
 		  </div>
 		  
     </div> <!-- close container -->
+
     <%- include('footer'); %>  
+
   </body>
 </html>
 

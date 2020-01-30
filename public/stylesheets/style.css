@@ -6,7 +6,8 @@ html {
 }
 
 body {
-  padding: 50px;
+  margin-left: 0;
+  margin-right: 0;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#7db9e8+29,2989d8+78,207cca+97,207cca+98,207cca+99,207cca+99,207cca+99,207cca+100,207cca+100,207cca+100,207cca+100,207cca+100,1e5799+100 */
 	background: #7db9e8; /* Old browsers */
@@ -14,7 +15,6 @@ body {
 	background: -webkit-linear-gradient(top,  #7db9e8 29%,#2989d8 78%,#207cca 97%,#207cca 98%,#207cca 99%,#207cca 99%,#207cca 99%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#1e5799 100%) fixed; /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #7db9e8 29%,#2989d8 78%,#207cca 97%,#207cca 98%,#207cca 99%,#207cca 99%,#207cca 99%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#1e5799 100%) fixed; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
-  overflow: hidden;
 }
 
 h1 {
@@ -60,9 +60,9 @@ a:link {
 }
 
 footer {
-  margin-top: 45px;
   color: white;
   opacity: 0.7;
+  vertical-align:bottom;
 }
 
 .accueil {
@@ -81,15 +81,21 @@ footer {
 
 .accueil-image {
   margin-top: 90px;
+  float: right;
+
+
+  
 }
+
 .titleForm {
 	color: #fff;
 	margin-top: 8rem;
 }
 
 .bold {
-	font-weight: bold;
+  font-weight: bold;
 }
+
 .list-group-item {
 	margin: 10px 0;
 	padding: 20px !important;
@@ -103,14 +109,8 @@ footer {
 	border-radius: 5px !important;
 }
 
-<<<<<<< HEAD
 .tab-tickets {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
  }
-=======
-.empty {
-	
-}
->>>>>>> e557b6533288a1b1bbe4956b084ba15733fc5adf
