@@ -9,6 +9,8 @@ var userModel = require('../models/users');
 
 
 
+
+
 /* Routes user's homepage */
 
 router.get('/', function(req, res, next) {
@@ -65,7 +67,7 @@ router.post('/sign-in', async function(req, res, next) {
 router.get('/logout', async function(req, res, next) {
 	
 	req.session.destroy( function () {
-		res.render('login', { title: 'Ticketac', error: "See you soon !" })
+		res.render('home', { title: 'Ticketac', error: "See you soon !" })
 	});
 	
 });

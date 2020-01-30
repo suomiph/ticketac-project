@@ -15,20 +15,31 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('home');
 });
 
 
 
 /* GET search page. */
-router.get('/search', function(req, res, next) {
+router.get('/index', function(req, res, next) {
+	var cityList;
+	var hrList;
+  res.render('index', {cityList, hrList });
+});
+
+
+
+/* GET search result page. */
+router.post('/search', function(req, res, next) {
+	
+	
+	console.log(req.body)
+	
+	
+	
 	var cityList;
 	var hrList;
   res.render('search', {cityList, hrList });
-});
-
-router.get('/home', function(req, res, next) {
-  res.render('home', { title: 'Express' });
 });
 
 /* GET booking page. */

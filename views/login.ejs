@@ -13,7 +13,7 @@
     
 		 <div class="col-12 text-center get_started">
 				<% if ( typeof(error) != "undefined" ) { %>
-					<p class="empty"><%=error%></p>
+					<p class="titleForm"><%=error%></p>
 			 	<%	} %>
 		 </div>
 			 
@@ -27,7 +27,7 @@
 
 				  <h1 class="titleForm">Sign-in:</h1>
 
-				  <form action="/sign-in" method="POST">
+				  <form action="/login/sign-in" method="POST">
 				    <div class="form-group">
 				      <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
 				    </div>
@@ -49,7 +49,7 @@
 				<div class="formArea">
 				  <h1 class="titleForm">Sign-up:</h1>
 
-				  <form action="/sign-up" method="POST">
+				  <form action="/login/sign-up" method="POST">
 				    <div class="form-group">
 				      <input name="firstname" type="text" class="form-control" placeholder="Enter first name">
 				    </div>
@@ -69,7 +69,8 @@
 
 			 </div>
 		 </div>
-    </div>     
+    </div>
+    <%- include('footer'); %>   
   </body>
 </html>
 
