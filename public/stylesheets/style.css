@@ -1,8 +1,18 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#7db9e8+29,2989d8+78,207cca+97,207cca+98,207cca+99,207cca+99,207cca+99,207cca+100,207cca+100,207cca+100,207cca+100,207cca+100,1e5799+100 */
+	background: #7db9e8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #7db9e8 29%, #2989d8 78%, #207cca 97%, #207cca 98%, #207cca 99%, #207cca 99%, #207cca 99%, #207cca 100%, #207cca 100%, #207cca 100%, #207cca 100%, #207cca 100%, #1e5799 100%) fixed; /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #7db9e8 29%,#2989d8 78%,#207cca 97%,#207cca 98%,#207cca 99%,#207cca 99%,#207cca 99%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#1e5799 100%) fixed; /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #7db9e8 29%,#2989d8 78%,#207cca 97%,#207cca 98%,#207cca 99%,#207cca 99%,#207cca 99%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#207cca 100%,#1e5799 100%) fixed; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+
+
 }
 
 a {
   color: #00B7FF;
 }
+
+
