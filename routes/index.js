@@ -9,7 +9,7 @@ var journeyModel = require('../models/journey');
 var userModel = require('../models/users');
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
-var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
+var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
 
 
 
@@ -22,24 +22,32 @@ router.get('/', function(req, res, next) {
 
 /* GET search page. */
 router.get('/index', function(req, res, next) {
-	var cityList;
-	var hrList;
-  res.render('index', {cityList, hrList });
+  res.render('index');
 });
 
 
 
 /* GET search result page. */
-router.post('/search', function(req, res, next) {
+router.post('/search', async function(req, res, next) {
 	
+	console.log(req.body) // fromcity, tocity, date
 	
-	console.log(req.body)
+	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
 	
+	var result = [];
+	var date = req.body.date;
 	
-	
-	var cityList;
-	var hrList;
-  res.render('search', {cityList, hrList });
+	for (var i=0; i<data.length; i++) {
+		result.push({
+			fromcity: req.body.fromcity,
+			tocity: req.body.tocity,
+			hour: data[i].departureTime,
+			price: data[i].price
+		});
+	}
+
+	console.log(result, date)
+	res.render('search', { result, date });
 });
 
 /* GET booking page. */
@@ -55,7 +63,13 @@ router.get('/mytrips', function(req, res, next) {
 });
 
 
+
 module.exports = router;
+
+
+
+
+
 
 //// Remplissage de la base de donnée, une fois suffit
 //router.get('/save', async function(req, res, next) {
@@ -86,3 +100,27 @@ module.exports = router;
 //  }
 //  res.render('index', { title: 'Express' });
 //});
+
+
+//// Cette route est juste une verification du Save.
+//// Vous pouvez choisir de la garder ou la supprimer.
+//router.get('/result', function(req, res, next) {
+
+//  // Permet de savoir combien de trajets il y a par ville en base
+//  for(i=0; i<city.length; i++){
+
+//    journeyModel.find( 
+//      { departure: city[i] } , //filtre
+//  
+//      function (err, journey) {
+
+//          console.log(`Nombre de trajets au départ de ${journey[0].departure} : `, journey.length);
+//      }
+//    )
+
+//  }
+
+
+//  res.render('index', { title: 'Express' });
+//});
+
