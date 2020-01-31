@@ -52,7 +52,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
 // app.locals functions
 
 app.locals.stringDate = function (date, longDay = 2, indYear = 0) {
@@ -70,9 +69,4 @@ app.locals.stringDate = function (date, longDay = 2, indYear = 0) {
 }
 
 
-
-
-
-
 module.exports = app;
-

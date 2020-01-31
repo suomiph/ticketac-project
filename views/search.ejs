@@ -32,7 +32,7 @@
                   </div>
                   <div >
                     <span class="bold"><%= result[i].price %>€&nbsp;</span>
-                    <a href="/reserve?id=" class="btn btn-danger" >OK</a>
+                    <a href="/booking?id=<%= result[i].fromcity %><%= result[i].tocity %>&date=<%= date%>&price=<%= result[i].price %>" class="btn btn-danger" >OK</a>
                   </div>
                 </li>
                <% } %>   

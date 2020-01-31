@@ -11,7 +11,6 @@ var userModel = require('../models/users');
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
 
-
 // functions
 function verifyConnect (response, reqSession) {
 	if ( typeof(reqSession.userid) == "undefined" ) {
@@ -20,14 +19,10 @@ function verifyConnect (response, reqSession) {
 	}	
 }
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('home');
 });
-
-
 
 /* GET search page. */
 router.get('/index', function(req, res, next) {
@@ -35,13 +30,9 @@ router.get('/index', function(req, res, next) {
    res.render('index');
 });
 
-
-
 /* GET search result page. */
 router.post('/search', async function(req, res, next) {
 	verifyConnect(res,req.session);
-	
-	//console.log(req.body) // fromcity, tocity, date
 	
 	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
 	
@@ -61,9 +52,30 @@ router.post('/search', async function(req, res, next) {
 });
 
 /* GET booking page. */
-router.get('/booking', function(req, res, next) {
+router.get('/booking', async function(req, res, next) {
+	
 	verifyConnect(res,req.session);
-	res.render('booking');
+
+	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
+
+	var alreadyExist = false;
+
+	req.session.result = [];
+	var date = req.body.date;
+
+
+  if (alreadyExist == false) {
+	for (var i=0; i<data.length; i++) {
+		req.session.result.push({
+			fromcity: req.body.fromcity,
+			tocity: req.body.tocity,
+			hour: data[i].departureTime,
+			price: data[i].price
+		}); 
+  	}
+  }
+
+	res.render('booking', {result, date});
 });
 
 /* GET last trips page. */

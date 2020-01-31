@@ -58,7 +58,7 @@ router.post('/sign-in', async function(req, res, next) {
 		req.session.userid = userInfo.id;
 		req.session.username = userInfo.username;
 		res.redirect('/index');
-	} else {
+	}	else {
 		res.render('login', { error: "Invalid email or password" });
 	}
 
