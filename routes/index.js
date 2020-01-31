@@ -27,6 +27,7 @@ router.get('/', function(req, res, next) {
 /* GET search page. */
 router.get('/index', function(req, res, next) {
 	verifyConnect(res,req.session);
+	
    res.render('index');
 });
 
@@ -36,22 +37,30 @@ router.post('/search', async function(req, res, next) {
 	
 	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
 	
-	var result = [];
-	var date = req.body.date
+	var date = req.body.date;
 	
-	for (var i=0; i<data.length; i++) {
-		result.push({
-			fromcity: req.body.fromcity,
-			tocity: req.body.tocity,
-			hour: data[i].departureTime,
-			price: data[i].price,
-			date : req.body.date
-		});
+	if (data.length != 0) {
+	
+		var result = [];
+				
+		for (var i=0; i<data.length; i++) {
+			result.push({
+				fromcity: req.body.fromcity,
+				tocity: req.body.tocity,
+				date: req.body.date,
+				hour: data[i].departureTime,
+				price: Number( data[i].price ),
+			});
+		}
+		
+		req.session.searchResult = result;
+		
+		res.render('search', { result, date });		
+	} else {	
+		res.render('search', { date, error: `Sorry, no trains registered for ` });
 	}
- req.session.searchResult = result;
-
-	res.render('search', { result, date});
 });
+
 
 /* GET booking page. */
 router.get('/booking', function(req, res, next) {
