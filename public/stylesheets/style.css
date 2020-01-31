@@ -37,9 +37,22 @@ a:hover {
   font-weight: bold;
 }
 
+
 a:link {
   text-decoration: none !important;
 }
+
+.btn-danger {
+	color: white !important;
+}
+.btn-danger:hover {
+	color: white !important;
+}
+
+.btn {
+	border-radius: 5px !important;
+}
+
 
 .train {
   margin-right: 15px;
@@ -90,13 +103,15 @@ footer {
 }
 
 .titleForm {
+	top: 70px;
 	color: white;
    opacity: 0.7;
-	margin-top: 140px;
+   margin-top: 20px;
 }
 
 .empty {
 	color: white;
+	font-size: 2rem;
 	margin-top: 80px;
 	z-index: 7;
 }
@@ -108,14 +123,6 @@ footer {
 .list-group-item {
 	margin: 10px 0;
 	padding: 20px !important;
-}
-
-.btn-danger {
-	color: white !important;
-}
-
-.btn {
-	border-radius: 5px !important;
 }
 
 .tab-tickets {

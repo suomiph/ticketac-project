@@ -56,7 +56,11 @@ app.use(function(err, req, res, next) {
 // app.locals functions
 
 app.locals.stringDate = function (date, longDay = 2, indYear = 0) {
-
+	console.log( typeof(date) )
+	if ( typeof(date) != "date" ) {
+		date = new Date(date);
+	}
+		
 	if (longDay==2){ 
 		var day = String( date.getDate() ).padStart(longDay,'0'); 
 	} else { 

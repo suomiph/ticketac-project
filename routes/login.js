@@ -57,18 +57,18 @@ router.post('/sign-up', async function(req, res, next) {
 router.post('/sign-in', async function(req, res, next) {
 	
 	var userInfo = await userModel.findOne( { email: req.body.email, password:req.body.password } );
-	console.log( userInfo )
 	
 	if (userInfo) {
 		req.session.userid = userInfo.id;
 		req.session.firstname = userInfo.firstname;
 		req.session.lastname = userInfo.lastname;
 		req.session.email = userInfo.email;
+		console.log(req.session)
 		res.redirect('/index');
+		
 	} else {
 		res.render('login', { error: "Invalid email or password" });
 	}
-
 });
 
 router.get('/logout', async function(req, res, next) {

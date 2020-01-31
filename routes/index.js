@@ -14,7 +14,6 @@ var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
 
 // functions
 function verifyConnect (response, reqSession) {
-	console.log(reqSession)
 	if ( typeof(reqSession.userid) == "undefined" ) {
 		response.redirect('/');
 		return 0;
@@ -33,6 +32,7 @@ router.get('/', function(req, res, next) {
 /* GET search page. */
 router.get('/index', function(req, res, next) {
 	verifyConnect(res,req.session);
+	
    res.render('index');
 });
 
@@ -46,19 +46,29 @@ router.post('/search', async function(req, res, next) {
 	
 	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
 	
-	var result = [];
 	var date = req.body.date;
+	if (data.length != 0) {
 	
-	for (var i=0; i<data.length; i++) {
-		result.push({
-			fromcity: req.body.fromcity,
-			tocity: req.body.tocity,
-			hour: data[i].departureTime,
-			price: data[i].price
-		});
+		var result = [];
+				
+		for (var i=0; i<data.length; i++) {
+			result.push({
+				fromcity: req.body.fromcity,
+				tocity: req.body.tocity,
+				hour: data[i].departureTime,
+				price: data[i].price
+			});
+		}
+		res.render('search', { result, date });
+		
+	} else {
+	
+		res.render('search', { date, error: `Sorry, no trains registered for ` });
 	}
-
-	res.render('search', { result, date });
+	
+	
+	
+	
 });
 
 /* GET booking page. */

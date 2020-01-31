@@ -9,14 +9,19 @@
     
     <div class="container-fluid">
     
+    	
+    	<div class="col-12 text-center get_started empty">
+			<% if ( typeof(error) != "undefined" ) { %>
+				<p class="empty bold"><%=error + stringDate(date) %></p>  <!-- + stringDate(date) -->
+				<a href="/index" class="btn btn-danger bold">Search again</a>
+		 	<%	} %>
+		</div>
+		 
+    	<% if ( typeof(result) != "undefined" ) { %>
+    	
 		 <div class="d-flex flex-column align-items-center">
 		 
-			<div class="col-12 text-center get_started">
-				<% if (typeof(error) != "undefined" ) { %>
-					<p class="empty"><%=error%></p>
-			 	<%	} %>
-		 	</div>	  
-			 
+	 
 			<div class="col-12 col-sm-6">
 
           <h1 class="titleForm">Tickets available on <%= date%></h1>
@@ -35,14 +40,14 @@
                     <a href="/reserve?id=" class="btn btn-danger" >OK</a>
                   </div>
                 </li>
-               <% } %>   
+              <% } %>   
 
             </ul>
           
-			 </div>
+			</div>
 			 
-		  </div>
-		  
+		 </div>
+		<% } %> 
     </div> <!-- close container -->
 
     <%- include('footer'); %>  
