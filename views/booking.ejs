@@ -26,17 +26,20 @@
                 <tbody>
 
                     <%
-                        let totalCmd = 0;
-                        for(var i = 0; i<result.length; i++) {
-                        totalCmd = result[i].prix + totalCmd;
+                    let totalCmd = 0;
+                    for(var i = 0; i<result.length; i++) {
+                        totalCmd = result[i].price + totalCmd;
                     %>
-                <tr>
-                    <th scope="row"><%=i%></th>
-                    <td><%= result[i].fromcity %> / <%= result[i].tocity %></td>
-                    <td><%= date%></td>
-                    <td><%=result[i].hour %></td>
-                    <td><%= result[i].price %></td>
-                </tr>
+                        <tr>
+                            <th scope="row"><%=i%></th>
+                            <td><%= result[i].fromcity %> / <%= result[i].tocity %></td>
+                            <td><%= result[i].date%></td>
+                            <td><%= result[i].hour %></td>
+                            <td><%= result[i].price %> €</td>
+                        </tr>
+                
+                    <% } %>
+                
                 <tr class="table-danger">
                     <th scope="row" >Total</th>
                     <td></td>
@@ -44,6 +47,8 @@
                     <td></td>
                     <td> <%= totalCmd%> €</td>
                 </tr>
+
+                
                 </tbody>
                 
             </table>
