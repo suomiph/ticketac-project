@@ -65,12 +65,8 @@ router.post('/sign-in', async function(req, res, next) {
 		req.session.email = userInfo.email;
 		console.log(req.session)
 		res.redirect('/index');
-<<<<<<< HEAD
-	}	else {
-=======
 		
 	} else {
->>>>>>> b9dd4b3b4b3b5a11ce0007cd38e488ba1ea91fe5
 		res.render('login', { error: "Invalid email or password" });
 	}
 });

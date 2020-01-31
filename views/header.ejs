@@ -1,7 +1,21 @@
 <nav class="navbar fixed-top navbar-light bg-light font-weight-bold">
     <a href="/"><img src="/images/train.png" width="40px" class="d-inline-block train">Ticketac</a>
+
     <ul class="nav justify-content-end">
-        <li class="nav-item"><a class="connection" href="/login">Connection</a></li>
-        <li class="nav-item"><a class="trips" href="/mytrips">My last trips</a></li>
+
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mon compte</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <p class="dropdown-item">Hello </p>
+              <a class="dropdown-item" href="#">Déconnection</a>
+            </div>
+        </li>   
+              
+        <li class="nav-item">
+            <a class="trips" href="/mytrips">My last trips</a>
+        </li>
+
     </ul>
+
 </nav> 
