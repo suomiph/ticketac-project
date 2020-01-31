@@ -18,13 +18,6 @@ router.get('/', function(req, res, next) {
 });
 
 
-// 
-//	function (res, req, next) {
-//		if ( typeof(req.session.userid) == "undefined" ) {
-//			res.redirect('/');
-//		}	else next();
-//	},
-
 router.post('/sign-up', async function(req, res, next) {
 	
 	var userInfo = await userModel.findOne( { email: req.body.email } );
@@ -40,14 +33,15 @@ router.post('/sign-up', async function(req, res, next) {
 		lastname: req.body.username,
 		email: req.body.email,
 		password: req.body.password,
-	} );
-		
+		mytrips: [],
+	} );	
 	var userSaved = await userObj.save();
 	
 	req.session.userid = userSaved.id;
 	req.session.firstname = userSaved.firstname;
 	req.session.lastname = userSaved.lastname;
 	req.session.email = userSaved.email;
+	req.session.mytrips = userSaved.mytrips;
 	
 	res.redirect('/index');
 }); 
@@ -63,10 +57,12 @@ router.post('/sign-in', async function(req, res, next) {
 		req.session.firstname = userInfo.firstname;
 		req.session.lastname = userInfo.lastname;
 		req.session.email = userInfo.email;
+		req.session.mytrips = userInfo.mytrips;
+		
 		console.log(req.session)
 		res.redirect('/index');
-		
 	} else {
+
 		res.render('login', { error: "Invalid email or password" });
 	}
 });

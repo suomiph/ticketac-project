@@ -82,8 +82,12 @@ router.get('/booking', function(req, res, next) {
 });
 
 /* GET last trips page. */
-router.get('/mytrips', function(req, res, next) {
+router.get('/mytrips', async function(req, res, next) {
 	verifyConnect(res,req.session);
+
+	var mytrips = await userModel.find 
+
+
 	res.render('mytrips');
 });
 
