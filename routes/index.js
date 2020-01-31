@@ -13,6 +13,7 @@ var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
 
 // functions
 function verifyConnect (response, reqSession) {
+	console.log(reqSession)
 	if ( typeof(reqSession.userid) == "undefined" ) {
 		response.redirect('/');
 		return 0;

@@ -28,10 +28,11 @@ router.get('/', function(req, res, next) {
 router.post('/sign-up', async function(req, res, next) {
 	
 	var userInfo = await userModel.findOne( { email: req.body.email } );
-
+	console.log( userInfo )
+	
 	if (userInfo) {
 		res.render('login', { error: "Email already registered \n Please, sign-in" });
-		return ;
+		return 0;
 	}
 	
 	var userObj = new userModel( {
@@ -44,7 +45,10 @@ router.post('/sign-up', async function(req, res, next) {
 	var userSaved = await userObj.save();
 	
 	req.session.userid = userSaved.id;
-	req.session.username = userSaved.username;
+	req.session.firstname = userSaved.firstname;
+	req.session.lastname = userSaved.lastname;
+	req.session.email = userSaved.email;
+	
 	res.redirect('/index');
 }); 
 
@@ -53,10 +57,13 @@ router.post('/sign-up', async function(req, res, next) {
 router.post('/sign-in', async function(req, res, next) {
 	
 	var userInfo = await userModel.findOne( { email: req.body.email, password:req.body.password } );
+	console.log( userInfo )
 	
 	if (userInfo) {
 		req.session.userid = userInfo.id;
-		req.session.username = userInfo.username;
+		req.session.firstname = userInfo.firstname;
+		req.session.lastname = userInfo.lastname;
+		req.session.email = userInfo.email;
 		res.redirect('/index');
 	}	else {
 		res.render('login', { error: "Invalid email or password" });
