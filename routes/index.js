@@ -75,7 +75,6 @@ router.get('/booking', function(req, res, next) {
 		req.session.searchResult[i]
 	);
 	
-	
 	console.log(req.session.panier)
 
 	res.render('booking', {result: req.session.panier});
@@ -85,10 +84,15 @@ router.get('/booking', function(req, res, next) {
 router.get('/mytrips', async function(req, res, next) {
 	verifyConnect(res,req.session);
 
-	var mytrips = await userModel.find 
+	var user = await userModel.findOne(
+		{_id : req.session._id}
+	);
 
+	console.log(user)
 
-	res.render('mytrips');
+	var mytrips = user.mytrips;
+
+	res.render('mytrips', {mytrips});
 });
 
 module.exports = router;
@@ -145,4 +149,3 @@ module.exports = router;
 
 //  res.render('index', { title: 'Express' });
 //});
-

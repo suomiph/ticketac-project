@@ -8,20 +8,15 @@ var session = require('express-session');
 var userModel = require('../models/users');
 
 
-
-
-
 /* Routes user's homepage */
 
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Ticketac' });
 });
 
-
 router.post('/sign-up', async function(req, res, next) {
 	
 	var userInfo = await userModel.findOne( { email: req.body.email } );
-	console.log( userInfo )
 	
 	if (userInfo) {
 		res.render('login', { error: "Email already registered \n Please, sign-in" });
@@ -35,6 +30,7 @@ router.post('/sign-up', async function(req, res, next) {
 		password: req.body.password,
 		mytrips: [],
 	} );	
+
 	var userSaved = await userObj.save();
 	
 	req.session.userid = userSaved.id;
@@ -45,8 +41,6 @@ router.post('/sign-up', async function(req, res, next) {
 	
 	res.redirect('/index');
 }); 
-
-
 
 router.post('/sign-in', async function(req, res, next) {
 	
@@ -59,7 +53,7 @@ router.post('/sign-in', async function(req, res, next) {
 		req.session.email = userInfo.email;
 		req.session.mytrips = userInfo.mytrips;
 		
-		console.log(req.session)
+		console.log("on console log les sessiiiions", req.session)
 		res.redirect('/index');
 	} else {
 
