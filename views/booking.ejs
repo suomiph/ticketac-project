@@ -40,6 +40,8 @@
                 
                     <% } %>
                 
+                <div id="lepopup" data-result="<%=JSON.stringify(result)%>"></div>
+                
                 <tr class="table-danger">
                     <th scope="row" >Total</th>
                     <td></td>
@@ -56,13 +58,22 @@
 
             <div class="row">
                 <div class="col-12 text-right" >
-                    <button class="btn btn-danger btn-confirm" id='confirm'>Confirm</button>
+                    <button class="btn btn-danger btn-confirm" id="confirm" onclick="myPopUp()">Confirm</button>
                 </div>
             </div>
+				
+				
+				
 
         </div>
 
     </div> <!-- close container -->
     <%- include('footer'); %>  
+    
+    <script src="/javascripts/popupconfirm.js"></script>
+    
   </body>
 </html>
+
+
+
