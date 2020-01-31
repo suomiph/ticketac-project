@@ -14,40 +14,34 @@
         <div class="col-12 col-sm-10 tab-tickets">
 
             <table class="table bg-white ">
-                <thead>
+              <thead>
                 <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Journey</th>
                     <th scope="col">Departure time</th>
                     <th scope="col">Price</th>
                 </tr>
-                </thead>
-                <tbody>
+              </thead>
+              <tbody>
                 
                 <% for (var i=0; i<mytrips.length; i++) {
                 %>
                     <tr>
-                        <td><%=mytrips[i].date %></td>
+                        <td><%=stringDate(mytrips[i].date) %></td>
                         <td><%=mytrips[i].departure %> / <%=mytrips[i].arrival %></td>
-                        <td><%=mytrips[i].hour %></td>
-                        <td><%=mytrips[i].price %></td>
+                        <td><%=mytrips[i].departureTime %></td>
+                        <td><%=mytrips[i].price%>&nbsp;€</td>
                     </tr>
 
                 <% } %>
-                <tr>
-                    <td></td>
-                    <td>La Bretagne</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                </tbody>
+               </tbody>
                 
             </table>
             
 
             <div class="row">
                 <div class="col-12 text-right" >
-                    <a href="/home?"><button class="btn btn-danger btn-paiement" id='backhome'>Home</button></a>
+                    <a href="/index"><button class="btn btn-danger btn-paiement" id='backhome'>Home</button></a>
                 </div>
             </div>
 

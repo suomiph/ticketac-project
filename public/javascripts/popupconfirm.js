@@ -20,6 +20,8 @@ function myPopUp() {
   
   if ( confirm( confirmString )) {
     txt = "You pressed OK!";
+    //window.open("/", window);
+    window.location.href = '/addbdd';
   } else {
     txt = "You pressed Cancel!";
   }
