@@ -74,12 +74,6 @@ router.get('/booking', function(req, res, next) {
 	req.session.panier.push(
 		req.session.searchResult[i]
 	);
-<<<<<<< HEAD
-	
-	console.log(req.session.panier)
-=======
->>>>>>> 905e1ba1400fa79979db019ea8eddb5fa22abdce
-
 	res.render('booking', {result: req.session.panier});
 });
 
