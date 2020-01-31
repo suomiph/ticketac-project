@@ -11,15 +11,15 @@
     <div class="container-fluid">
     	
     
-		 <div class="col-12 text-center get_started">
+		 <div class="col-12 text-center get_started empty">
 				<% if ( typeof(error) != "undefined" ) { %>
-					<p class="titleForm"><%=error%></p>
+					<p class="empty bold"><%=error%></p>
 			 	<%	} %>
 		 </div>
 			 
-		 <div class="row d-flex justify-content-center">
 		 
-				  
+		 <div class="row d-flex justify-content-center">
+		 	  
 			 <!-- SIGN IN AREA -->
 			 <div class="col-12 col-sm-6 col-md-3 text-center">
 
@@ -57,10 +57,10 @@
 				      <input name="lastname" type="text" class="form-control" placeholder="Enter last name">
 				    </div>
 				    <div class="form-group">
-				      <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+				      <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
 				    </div>
 				    <div class="form-group">
-				      <input name="password" type="password" class="form-control"  placeholder="Enter password">
+				      <input name="password" type="password" class="form-control"  placeholder="Enter password" required>
 				    </div>
 
 				    <button type="submit" class="btn btn-danger">Submit</button>

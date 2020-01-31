@@ -91,8 +91,14 @@ footer {
 
 .titleForm {
 	color: white;
-  opacity: 0.7;
+   opacity: 0.7;
 	margin-top: 140px;
+}
+
+.empty {
+	color: white;
+	margin-top: 80px;
+	z-index: 7;
 }
 
 .bold {
