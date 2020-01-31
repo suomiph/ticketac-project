@@ -47,6 +47,7 @@ router.post('/search', async function(req, res, next) {
 	var data = await journeyModel.find({ "departure": req.body.fromcity, "arrival": req.body.tocity, "date": req.body.date});
 	
 	var date = req.body.date;
+	
 	if (data.length != 0) {
 	
 		var result = [];
@@ -55,21 +56,20 @@ router.post('/search', async function(req, res, next) {
 			result.push({
 				fromcity: req.body.fromcity,
 				tocity: req.body.tocity,
+				date: req.body.date,
 				hour: data[i].departureTime,
-				price: data[i].price
+				price: Number( data[i].price ),
 			});
 		}
-		res.render('search', { result, date });
 		
-	} else {
-	
+		req.session.searchResult = result;
+		
+		res.render('search', { result, date });		
+	} else {	
 		res.render('search', { date, error: `Sorry, no trains registered for ` });
 	}
-	
-	
-	
-	
 });
+
 
 /* GET booking page. */
 router.get('/booking', function(req, res, next) {
