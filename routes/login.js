@@ -8,6 +8,7 @@ var session = require('express-session');
 var userModel = require('../models/users');
 
 
+
 /* Routes user's homepage */
 
 router.get('/', function(req, res, next) {
@@ -72,3 +73,5 @@ router.get('/logout', async function(req, res, next) {
 
 
 module.exports = router;
+
+

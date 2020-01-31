@@ -8,8 +8,9 @@ var session = require('express-session');
 var journeyModel = require('../models/journey');
 var userModel = require('../models/users');
 
-var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
-var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
+//var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
+//var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
+
 
 // functions
 function verifyConnect (response, reqSession) {
@@ -19,10 +20,13 @@ function verifyConnect (response, reqSession) {
 	}	
 }
 
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('home');
 });
+
 
 /* GET search page. */
 router.get('/index', function(req, res, next) {
@@ -30,6 +34,7 @@ router.get('/index', function(req, res, next) {
 	
    res.render('index');
 });
+
 
 /* GET search result page. */
 router.post('/search', async function(req, res, next) {
@@ -69,6 +74,7 @@ router.get('/booking', function(req, res, next) {
 	if (typeof(req.session.panier) == "undefined")  {
 		req.session.panier = [];
 	}
+	
 	var i = req.query.position;
 
 	req.session.panier.push(
@@ -77,22 +83,53 @@ router.get('/booking', function(req, res, next) {
 	res.render('booking', {result: req.session.panier});
 });
 
+
 /* GET last trips page. */
 router.get('/mytrips', async function(req, res, next) {
 	verifyConnect(res,req.session);
 
-	var user = await userModel.findOne(
-		{_id : req.session._id}
-	);
-
-	console.log(user)
+	var user = await userModel.findOne( {_id : req.session.userid} );
 
 	var mytrips = user.mytrips;
 
 	res.render('mytrips', {mytrips});
 });
 
+
+
+/* GET last trips page. */
+router.get('/addbdd', async function (req, res, next) {
+	verifyConnect(res,req.session);
+
+	var user = await userModel.findOne( {_id : req.session.userid});
+
+	
+	for (var i=0; i<req.session.panier.length; i++) {
+		user.mytrips.push({
+			departure: req.session.panier[i].fromcity,
+		  	arrival: req.session.panier[i].tocity,
+		  	date: req.session.panier[i].date,
+		  	departureTime: req.session.panier[i].hour,
+		  	price: req.session.panier[i].price,
+		});
+	}
+	
+	await user.save(function (err) {
+  		if (err) return handleError(err);
+  		console.log('Success!');
+	});
+	
+	req.session.destroy( function(err) {
+  		res.redirect('/');
+	})
+});
+
+
 module.exports = router;
+
+
+
+
 
 //// Remplissage de la base de donnée, une fois suffit
 //router.get('/save', async function(req, res, next) {
