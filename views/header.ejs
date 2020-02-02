@@ -2,13 +2,20 @@
     <a href="/"><img src="/images/train.png" width="40px" class="d-inline-block train">Ticketac</a>
 
     <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="connection" href="/login">Connection</a>
-    </li>   
-          
-    <li class="nav-item">
-        <a class="trips" href="/mytrips">My last trips</a>
-    </li>
+    	<% if ( typeof( username ) != "undefined" ) { %>
+			<li class="nav-item user-name">
+				<p>Bonjour <%=username%> </p>
+			</li>
+		<% } %>
+ 		 
+		<li class="nav-item">
+			<a class="connection" href="/login">Connection</a>
+		</li>   
+			 
+		<li class="nav-item">
+			<a class="trips" href="/mytrips">My last trips</a>
+		</li>
+		
     </ul>
 </nav> 
 

@@ -25,14 +25,15 @@ router.post('/sign-up', async function(req, res, next) {
 	}
 	
 	var userObj = new userModel( {
-		firstname: req.body.username,
-		lastname: req.body.username,
+		firstname: req.body.firstname,
+		lastname: req.body.lastname,
 		email: req.body.email,
 		password: req.body.password,
 		mytrips: [],
 	} );	
 
 	var userSaved = await userObj.save();
+	
 	
 	req.session.userid = userSaved.id;
 	req.session.firstname = userSaved.firstname;
@@ -54,7 +55,7 @@ router.post('/sign-in', async function(req, res, next) {
 		req.session.email = userInfo.email;
 		req.session.mytrips = userInfo.mytrips;
 		
-		console.log("on console log les sessiiiions", req.session)
+		//res.render('index', { username: req.session.firstname });
 		res.redirect('/index');
 	} else {
 
@@ -62,12 +63,13 @@ router.post('/sign-in', async function(req, res, next) {
 	}
 });
 
+
+
 router.get('/logout', async function(req, res, next) {
 	
 	req.session.destroy( function () {
 		res.render('home', { title: 'Ticketac', error: "See you soon !" })
-	});
-	
+	});	
 });
 
 

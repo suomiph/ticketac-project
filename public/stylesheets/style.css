@@ -103,6 +103,11 @@ footer {
   animation : voyage 7s infinite;
 }
 
+.user-name {
+	font-style: italic;
+	font-weight: 300;
+}
+
 .titleForm {
 	top: 70px;
 	color: white;

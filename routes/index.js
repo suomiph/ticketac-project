@@ -12,6 +12,7 @@ var userModel = require('../models/users');
 //var date = ["2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07"]
 
 
+
 // functions
 function verifyConnect (response, reqSession) {
 	if ( typeof(reqSession.userid) == "undefined" ) {
@@ -31,8 +32,8 @@ router.get('/', function(req, res, next) {
 /* GET search page. */
 router.get('/index', function(req, res, next) {
 	verifyConnect(res,req.session);
-	
-   res.render('index');
+	console.log(req.session.firstname)
+   res.render('index', { username: req.session.firstname });
 });
 
 
@@ -60,9 +61,9 @@ router.post('/search', async function(req, res, next) {
 		
 		req.session.searchResult = result;
 		
-		res.render('search', { result, date });		
+		res.render('search', { result, date, username: req.session.firstname });		
 	} else {	
-		res.render('search', { date, error: `Sorry, no trains registered for ` });
+		res.render('search', { date, username: req.session.firstname, error: `Sorry, no trains registered for ` });
 	}
 });
 
@@ -80,7 +81,7 @@ router.get('/booking', function(req, res, next) {
 	req.session.panier.push(
 		req.session.searchResult[i]
 	);
-	res.render('booking', {result: req.session.panier});
+	res.render('booking', { result: req.session.panier , username: req.session.firstname });
 });
 
 
@@ -92,7 +93,7 @@ router.get('/mytrips', async function(req, res, next) {
 
 	var mytrips = user.mytrips;
 
-	res.render('mytrips', {mytrips});
+	res.render('mytrips', { mytrips,  username: req.session.firstname });
 });
 
 
@@ -119,11 +120,17 @@ router.get('/addbdd', async function (req, res, next) {
   		console.log('Success!');
 	});
 	
-	req.session.destroy( function(err) {
-  		res.redirect('/');
-	})
+	res.render('index', { username: req.session.firstname });
 });
 
+
+
+router.get('/logout', async function (req, res, next) {
+
+	req.session.destroy( function(err) {
+  		res.redirect('/');
+	});
+});
 
 module.exports = router;
 
