@@ -9,7 +9,7 @@ var userModel = require('../models/users');
 
 
 
-/* Routes user's homepage */
+/* Routes user's homepage This is a test */
 
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Ticketac' });
