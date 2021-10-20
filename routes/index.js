@@ -76,11 +76,12 @@ router.get('/booking', function(req, res, next) {
 		req.session.panier = [];
 	}
 	
-	var i = req.query.position;
+	if (typeof(req.query.position) != "undefined")  {
+		var i = req.query.position;
+		req.session.panier.push( req.session.searchResult[i] );
+	}
 
-	req.session.panier.push(
-		req.session.searchResult[i]
-	);
+
 	res.render('booking', { result: req.session.panier , username: req.session.firstname });
 });
 

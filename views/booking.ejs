@@ -55,13 +55,43 @@
                 
             </table>
             
-
             <div class="row">
                 <div class="col-12 text-right" >
-                    <button class="btn btn-danger btn-confirm" id="confirm" onclick="myPopUp()">Confirm</button>
+                    <button id="buttonConfirmation" type="button" class="btn btn-primary" data-toggle="modal" data-target="#mypopup">
+                    		Confirmer
+                    </button>
                 </div>
             </div>
-				
+			
+
+
+				<!-- Modal -->
+				<div class="modal fade" id="mypopup" tabindex="-1" role="dialog" aria-labelledby="mypopup" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-scrollable" role="document">
+					 <div class="modal-content">
+						<div class="modal-header">
+						  <img src="/images/train.png" width="40px" class="d-inline-block train"/>	
+						  <h5 class="modal-title" id="mypopup">Confirmez vos trajets</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							 <span aria-hidden="true">&times;</span>
+						  </button>
+						</div>
+						<div class="modal-body">
+						   <p>Êtes-vous certain de vouloir reserver le(s) train(s) suivant(s):</p>
+							<% for (var i=0; i<result.length; i++ ){
+							  	var confirmString = `De ${result[i].fromcity} à ${result[i].tocity}, le ${result[i].date} à ${result[i].hour}?`;%>
+							  	<p><%=confirmString%></p>
+							<% }%>
+							
+						</div>
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						  <button type="button" class="btn btn-primary"><a href="/addbdd">OK</a></button>
+						   
+						</div>
+					 </div>
+				  </div>
+				</div>
 				
 				
 
@@ -70,8 +100,8 @@
     </div> <!-- close container -->
     <%- include('footer'); %>  
     
+
     <script src="/javascripts/popupconfirm.js"></script>
-    
   </body>
 </html>
 
