@@ -1,16 +1,27 @@
 <nav class="navbar fixed-top navbar-light bg-light font-weight-bold">
     <a href="/"><img src="/images/train.png" width="40px" class="d-inline-block train">Ticketac</a>
 
-    <ul class="nav justify-content-end">
-    	<% if ( typeof( username ) != "undefined" ) { %>
-			<li class="nav-item user-name">
-				<p>Bonjour <%=username%> </p>
-			</li>
-		<% } %>
+
+
+
+    <ul class="nav justify-content-end align-items-center">
+    	
+    	<% if ( typeof( username ) != "undefined" ) { 
+    			var greets = `Bonjour ${username}`;
+    	 } else {var greets = `Bonjour`;
+    	 } %>
  		 
-		<li class="nav-item">
-			<a class="connection" href="/login">Connection</a>
-		</li>   
+	 	<div class="dropdown">
+		 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+		 	<%=greets%><span class="caret"></span>
+		 </button>
+		 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		   <li role="presentation"><a role="menuitem" tabindex="-1" href="/index">Home</a></li>
+		   <li role="presentation"><a role="menuitem" tabindex="-1" href="/booking">Panier</a></li>
+		   <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Logout</a></li>
+		 </ul>
+	   </div> 
+ 		 
 			 
 		<li class="nav-item">
 			<a class="trips" href="/mytrips">My last trips</a>
