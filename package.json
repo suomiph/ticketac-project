@@ -14,7 +14,7 @@
     "http-errors": "~1.6.2",
     "mongoose": "^5.13.20",
     "morgan": "~1.9.0",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.22",
     "sync-request": "^6.1.0"
   }
 }
